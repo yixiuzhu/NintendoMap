@@ -64,8 +64,4 @@ typings/
 .settings/
 *.sublime-workspace
 
-# Compiled front-end files
-/frontend/public/css/
-/frontend/public/js/
-
 # End of .gitignore
