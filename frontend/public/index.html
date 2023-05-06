@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nintendo World Map</title>
+  <link rel="stylesheet" href="css/main.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="js/main.js" defer></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTjH3puEU6ebUWwsLZFGQJySp3IrRDe0o&map_ids=dcdc3b5f84400377&callback=initMap"></script>
+</head>
+<body>
+  <div class="root">
+    <header class="app_header">
+      <h1 class="app_header_left">Nintendo World Map</h1>
+    </header>
+    <section class="content">
+      <div class="form_wrapper">
+        <form class="form">
+          <div class="location-input">
+            <label for="start">Start Location:</label>
+            <input type="text" id="start" placeholder="Enter a location">
+          </div>
+          <div class="location-input end-location">
+            <label for="end">End Location:</label>
+            <input type="text" id="end" placeholder="Enter a location">
+          </div>
+          <button id="get-route">Get Route</button>
+        </form>
+      </div>
+      <div class="map_wrapper">
+        <div id="map"></div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
