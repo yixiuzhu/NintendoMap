@@ -1,58 +1,79 @@
+let map;
+let directionsService;
+let directionsRenderer;
+
+function initMap() {
+  map = new google.maps.Map(document.getElementById("map"), {
+    center: { lat: 34.14481026163767, lng: -118.15108028900364 },
+    zoom: 17,
+    mapId: "dcdc3b5f84400377",
+  });
+
+  directionsService = new google.maps.DirectionsService();
+  directionsRenderer = new google.maps.DirectionsRenderer();
+  directionsRenderer.setMap(map);
+
+  initializeAutocomplete($("#start")[0]);
+  initializeAutocomplete($("#end")[0]);
+}
+
+function initializeAutocomplete(inputElement) {
+  const autocomplete = new google.maps.places.Autocomplete(inputElement);
+  autocomplete.setFields(["address_components", "geometry"]);
+
+  autocomplete.addListener("place_changed", () => {
+    const place = autocomplete.getPlace();
+    if (!place.geometry) {
+      alert("No details available for input: '" + place.name + "'");
+      return;
+    }
+    inputElement.dataset.lat = place.geometry.location.lat();
+    inputElement.dataset.lng = place.geometry.location.lng();
+  });
+}
+
+function plotRoute(start, end) {
+  const directionsRequest = {
+    origin: start,
+    destination: end,
+    travelMode: google.maps.TravelMode.DRIVING,
+  };
+
+  directionsService.route(directionsRequest, (result, status) => {
+    if (status === google.maps.DirectionsStatus.OK) {
+      directionsRenderer.setDirections(result);
+    } else {
+      alert("An error occurred while displaying the route.");
+    }
+  });
+}
+
+window.initMap = initMap;
+window.initializeAutocomplete = initializeAutocomplete;
+
 $(document).ready(() => {
-  const form = $('#route-form');
-  const startLocation = $('#pickup-address');
-  const endLocation = $('#destination');
+  const form = $("#route-form");
+  const startLocation = $("#start");
+  const endLocation = $("#end");
 
-  let map;
-  let directionsService;
-  let directionsRenderer;
-
-  function initMap() {
-    map = new google.maps.Map(document.getElementById('map'), {
-      center: { lat: 34.14481026163767, lng: -118.15108028900364},
-      zoom: 17,
-      mapId: "dcdc3b5f84400377",
-    });
-
-    directionsService = new google.maps.DirectionsService();
-    directionsRenderer = new google.maps.DirectionsRenderer();
-    directionsRenderer.setMap(map);
-  }
-
-  form.on('submit', (event) => {
+  form.on("submit", (event) => {
     event.preventDefault();
 
-    const start = startLocation.val().trim();
-    const end = endLocation.val().trim();
+    const start = {
+      lat: parseFloat(startLocation[0].dataset.lat),
+      lng: parseFloat(startLocation[0].dataset.lng),
+    };
 
-    if (start === '' || end === '') {
-      alert('Please enter both a start and end location.');
+    const end = {
+      lat: parseFloat(endLocation[0].dataset.lat),
+      lng: parseFloat(endLocation[0].dataset.lng),
+    };
+
+    if (!start.lat || !start.lng || !end.lat || !end.lng) {
+      alert("Please select both a start and end location.");
       return;
     }
 
-    $.post('http://localhost:3000/api/get-route', { startLocation: start, endLocation: end }, (data) => {
-      const route = data.routes[0].legs[0];
-      displayRoute(route);
-    }).fail(() => {
-      alert('An error occurred while fetching the route.');
-    });
+    plotRoute(start, end);
   });
-
-  function displayRoute(route) {
-    const directionsRequest = {
-      origin: route.start_location,
-      destination: route.end_location,
-      travelMode: google.maps.TravelMode.DRIVING,
-    };
-
-    directionsService.route(directionsRequest, (result, status) => {
-      if (status === google.maps.DirectionsStatus.OK) {
-        directionsRenderer.setDirections(result);
-      } else {
-        alert('An error occurred while displaying the route.');
-      }
-    });
-  }
-
-  window.initMap = initMap;
 });
