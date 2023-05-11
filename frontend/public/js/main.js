@@ -7,6 +7,9 @@ function initMap() {
     center: { lat: 34.144854685585784, lng: -118.15105346441807},
     zoom: 17,
     mapId: "dcdc3b5f84400377",
+    mapTypeControl:false,
+    fullscreenControl:false,
+    streetViewControl:false
   });
 
   directionsService = new google.maps.DirectionsService();
@@ -15,6 +18,25 @@ function initMap() {
 
   initializeAutocomplete($("#start")[0]);
   initializeAutocomplete($("#end")[0]);
+
+  const marker = new google.maps.Marker({
+    position: {lat: 34.14465283170275, lng: -118.15105263756271},
+    map,
+    title: "SupplyFrame\'s Place (LA)",
+    icon:{
+      url: "img/yoshi_house.svg",
+      scaledSize: new google.maps.Size(38,31)
+    },
+    animation:google.maps.Animation.DROP
+  });
+
+  const infowindow = new google.maps.InfoWindow({
+    content:"SupplyFrame's LA WorkPlace (626)-793-7732",
+  });
+
+  marker.addListener("click", () => {
+    infowindow.open(map, marker);
+  });
 }
 
 function initializeAutocomplete(inputElement) {
