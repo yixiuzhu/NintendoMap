@@ -46,14 +46,10 @@ To setup the environment and run this project, follow these steps:
 
 7. Open a web browser and navigate to `http://localhost:3000` to use the application.
 
-## Usage
+## Demo
 
-To use the application, simply enter a start location and an end location in the input fields and submit the form. The application will display the best driving route between those two locations on the map.
+![Demo](demo/Animation.gif)
 
-## Contributing
+## Lastly 
 
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-## License
-
-[MIT](https://choosealicense.com/licenses/mit/)
+Thanks for checking out my project and have fun!
