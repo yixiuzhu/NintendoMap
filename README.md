@@ -21,7 +21,7 @@ To setup the environment and run this project, follow these steps:
 3. Navigate to the project directory.
 
     ```bash
-    cd MapProject
+    cd NintendoMap
     ```
 
 4. Install the necessary dependencies.
