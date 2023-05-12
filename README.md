@@ -30,21 +30,25 @@ To setup the environment and run this project, follow these steps:
     npm install
     ```
 
-5. Update the server path in the `package.json` file to the correct path of your `server.js`. It should look like this:
+5. Start the server test.
 
-    ```json
-    "scripts": {
-        "start": "node path/to/your/server.js"
-    }
+    ```bash
+    npm test 
+    ```
+    
+6. Terminate the test.
+ 
+    ```bash
+    npm test 
     ```
 
-6. Start the server.
+7. Start the backend server. 
 
     ```bash
     npm start
     ```
 
-7. Open a web browser and navigate to `http://localhost:3000` to use the application.
+8. Open a web browser and navigate to `http://localhost:3000` to use the application.
 
 ## Demo
 
