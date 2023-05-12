@@ -1,4 +1,4 @@
-# Map Route Plotting Project
+# Nintendo World Map (SupplyFrame Intern Challenge)
 
 ## Introduction
 
