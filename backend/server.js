@@ -3,6 +3,9 @@ const app = express();
 const path = require('path');
 const indexRouter = require('./routes/index');
 const apiRouter = require('./routes/api');
+const cors = require('cors');
+
+app.use(cors());
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));

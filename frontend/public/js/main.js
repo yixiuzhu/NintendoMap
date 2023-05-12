@@ -182,6 +182,7 @@ function initializeAutocomplete(inputElement) {
   });
 }
 
+
 function plotRoute(start, end) {
   const directionsRequest = {
     origin: start,
@@ -197,9 +198,6 @@ function plotRoute(start, end) {
     }
   });
 }
-
-window.initMap = initMap;
-window.initializeAutocomplete = initializeAutocomplete;
 
 $(document).ready(() => {
   const form = $("#route-form");
@@ -230,3 +228,5 @@ $(document).ready(() => {
   });
 });
 
+window.initMap = initMap;
+window.initializeAutocomplete = initializeAutocomplete;
