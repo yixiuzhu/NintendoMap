@@ -15,7 +15,7 @@ To setup the environment and run this project, follow these steps:
 2. Clone the repository to your local machine.
 
     ```bash
-    git clone https://github.com/username/MapProject.git
+    git clone https://github.com/username/MapProject.git](https://github.com/yixiuzhu/NintendoMap.git
     ```
 
 3. Navigate to the project directory.
