@@ -6,9 +6,13 @@ This project is a aims to find the company SupplyFrame in the nintendo world map
 
 The application uses Google Maps API to plot routes, and includes a backend server that interacts with the frontend to process route requests. The backend receives start and end locations from the frontend, processes them, and returns the locations back to the frontend. The frontend then uses this data to request route plotting from Google Maps API. (For demo purposes, the frontend is currently set up to directly communicate with google map api, while the backend side is still functional).
 
-## Setup
+## Tryout the project
 
-To setup the environment and run this project, follow these steps:
+1. Just Navigate to `https://yixiuzhu.github.io/NintendoMap/` to try the frontend application. (This is a website built with frontend only due to github.io publish rules, so in this case, the frontend is directly communicating with google map API.)
+
+## Backend Setup
+
+To setup the environment, test and run the backend, follow these steps: (The backend now is just able to take the addresses from frontend and return route for frontend to plot, more features expected in future ~)
 
 1. Make sure you have [Node.js](https://nodejs.org/en/download/) installed.
 
@@ -39,7 +43,7 @@ To setup the environment and run this project, follow these steps:
 6. Terminate the test.
  
     ```bash
-    npm test 
+    ctrl-c (then select yes)
     ```
 
 7. Start the backend server. 
@@ -48,9 +52,9 @@ To setup the environment and run this project, follow these steps:
     npm start
     ```
 
-8. Open a web browser and navigate to `http://localhost:3000` to use the application.
+8. Navigate to `https://yixiuzhu.github.io/NintendoMap/` to try the frontend application. (This is a website built with frontend only capability for demo purpose)
 
-## Demo
+## GIF Demo
 
 ![Demo](demo/Animation.gif)
 
