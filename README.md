@@ -8,7 +8,7 @@ The application uses Google Maps API to plot routes, and includes a backend serv
 
 ## Tryout the project
 
-1. Just Navigate to `https://yixiuzhu.github.io/NintendoMap/` to try the frontend application. (This is a website built with frontend only due to github.io publish rules, so in this case, the frontend is directly communicating with google map API.)
+1. Just Navigate to `[https://yixiuzhu.github.io/NintendoMap/](https://yixiuzhu.github.io/NintendoMap/)` to try the frontend application. (This is a website built with frontend only due to github.io publish rules, so in this case, the frontend is directly communicating with google map API.)
 
 ## Backend Setup
 
@@ -51,8 +51,6 @@ To setup the environment, test and run the backend, follow these steps: (The bac
     ```bash
     npm start
     ```
-
-8. Navigate to `https://yixiuzhu.github.io/NintendoMap/` to try the frontend application. (This is a website built with frontend only capability for demo purpose)
 
 ## GIF Demo
 
